@@ -1,15 +1,30 @@
 let array = [];
+let slider;
+let r = 100;
+let g = 100;
+let b = 100;
 
 function setup() {
   createCanvas(889, 500);
   background(220, 22, 220);
 
-  strokeWeight(3);
+  strokeWeight(r, g, b);
+
+  button1 = createButton("stroke weight");
+  button2 = createButton("stroke color");
+
+  button1.mousePressed(increseStrokeWeight);
+  button2.mousePressed(changeStrokeColor);
+  createP("stroke weight");
+  slider = createSlider(0, 30, 5);
 }
 
 function draw() {
+  let lineWidth = slider.value();
 
-  if (mouseIsPressed == true) {
+  strokeWeight(lineWidth);
+
+  if (keyIsPressed === true) {
     //stroke(map(mouseX, 0, 600, 0, 255, true), )
     //line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
     line(width - mouseX, height - mouseY, pmouseX, pmouseY);
@@ -31,10 +46,24 @@ function keyTyped() {
 
     } else if (key === 'c') {
       // clear canvas
+      color(0, 0, 0);
+
     } else if (key == 'e') {
-      // Erase
+      // Erase tool
       stroke(0, 0);
       fill(250);
       circle(mouseX, mouseY, 35);
+    } else if (key === 'r') {
+      r += 5;
+    } else if (key === 'g') {
+      g += 5;
+    } else if (key === 'b') {
+    g += 5;
+  }   else if (key === 't') {
+        r -= 5;
+      } else if (key === 'h') {
+        g -= 5;
+      } else if (key === 'n') {
+      g -= 5;
     }
-  }
+}
