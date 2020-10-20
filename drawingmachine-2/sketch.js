@@ -15,22 +15,21 @@ function setup() {
   button1 = createButton("stroke weight");
   button2 = createButton("stroke color");
 
-  //  button1.mousePressed(increseStrokeWeight);
-  //  button2.mousePressed(changeStrokeColor);
+  button1.mousePressed(increseStrokeWeight);
+  button2.mousePressed(changeStrokeColor);
   createP("stroke weight");
-  slider = createSlider(0, 30, 5);
+  slider = createSlider(0, 30, 6);
 }
 
 function draw() {
   let lineWidth = slider.value();
 
   strokeWeight(lineWidth);
-
+  background(100);
   if (keyIsPressed === true) {
     //stroke(map(mouseX, 0, 600, 0, 255, true), )
     //line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
-    background(0);
-    //line(width - mouseX, height - mouseY, pmouseX, pmouseY);
+    line(width - mouseX, height - mouseY, pmouseX, pmouseY);
     array.push([mouseX, mouseY]);
   }
 }
@@ -44,32 +43,28 @@ function keyTyped() {
     //display imgae
     //console.log(array[0]);
     //console.log(array[0][1]);
-    background(255);
+    background(5);
     beginShape();
-    for (let i = 0; i < array.length - 1; i++) {
-      line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
-    endShape();
+    for (let i = 0; i < array.length; i++) {
+      //line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
+    curveVertex(array[i][0], array[i][1]);
     }
-  } else if (key === 'c') {
-    // clear canvas
-    background(0, 0, 0);
+    endShape();
+  }else if (key === 'c') {
+      // clear canvas
+      color(0, 0, 0);
 
-  } else if (key === 'e') {
-    // Erase tool
-    stroke(0, 0);
-    fill(250);
-    circle(mouseX, mouseY, 35);
-  } else if (key === 'r') {
-    r += 5;
-  } else if (key === 'g') {
-    g += 5;
-  } else if (key === 'b') {
-    g += 5;
-  } else if (key === 't') {
-    r -= 5;
-  } else if (key === 'h') {
-    g -= 5;
-  } else if (key === 'n') {
-    g -= 5;
-  }
+    } else if (key === 'r') {
+      r += 5;
+    } else if (key === 'g') {
+      g += 5;
+    } else if (key === 'b') {
+      b += 5;
+  }   else if (key === 't') {
+        r -= 5;
+      } else if (key === 'h') {
+        g -= 5;
+      } else if (key === 'n') {
+      b -= 5;
+    }
 }
