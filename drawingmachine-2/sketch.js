@@ -15,7 +15,7 @@ function setup() {
   button1 = createButton("stroke weight");
   button2 = createButton("stroke color");
 
-  button1.mousePressed(increseStrokeWeight);
+  button1.mousePressed(increaseStrokeWeight);
   button2.mousePressed(changeStrokeColor);
   createP("stroke weight");
   slider = createSlider(0, 30, 6);
@@ -25,10 +25,11 @@ function draw() {
   let lineWidth = slider.value();
 
   strokeWeight(lineWidth);
-  background(100);
-  if (keyIsPressed === true) {
+
+  if (mouseIsPressed === true) {
     //stroke(map(mouseX, 0, 600, 0, 255, true), )
     //line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
+    // background(0);
     line(width - mouseX, height - mouseY, pmouseX, pmouseY);
     array.push([mouseX, mouseY]);
   }
