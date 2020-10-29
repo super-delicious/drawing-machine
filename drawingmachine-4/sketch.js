@@ -16,17 +16,19 @@ function setup() {
 
   //  strokeWeight(r, g, b);
 
-  button1 = createButton("stroke weight");
+//  button1 = createButton("stroke weight");
   //button2 = createButton("stroke color");
 
-  button1.mousePressed(increaseStrokeWeight);
+//  button1.mousePressed(increaseStrokeWeight);
   //button2.mousePressed(changeStrokeColor);
   createP("stroke weight");
   slider = createSlider(0, 30, 6);
   // color picker
+  createP("Color Picker");
   createCanvas(50, 50);
-  colorPicker = createColorPicker('#ed225d');
-  colorPicker.position(0, height + 5);
+  colorPicker = createColorPicker('#f5f12f');
+  colorPicker.position(230, 435);
+
 }
 
 function draw() {
@@ -63,6 +65,7 @@ function keyTyped() {
     //console.log(array[0]);
     //console.log(array[0][1]);
     background(25);
+
     beginShape();
     for (let i = 0; i < array.length; i++) {
       //line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
@@ -72,7 +75,6 @@ function keyTyped() {
   } else if (key === 'c') {
     // clear the canvas
     clear();
-
   } else if (key === 'r') { // change color value
     r += 5;
   } else if (key === 'g') {
@@ -86,4 +88,6 @@ function keyTyped() {
   } else if (key === 'n') {
     b -= 5;
   }
+
+  return false;
 }
