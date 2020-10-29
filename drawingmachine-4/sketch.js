@@ -12,14 +12,14 @@ let colorPicker;
 function setup() {
   //createCanvas(889, 500);
   createCanvas(windowWidth, windowHeight);
-  background(255, 32, 54);
-
+  //  background(255, 32, 54);
+  drawGrid();
   //  strokeWeight(r, g, b);
 
-//  button1 = createButton("stroke weight");
+  //  button1 = createButton("stroke weight");
   //button2 = createButton("stroke color");
 
-//  button1.mousePressed(increaseStrokeWeight);
+  //  button1.mousePressed(increaseStrokeWeight);
   //button2.mousePressed(changeStrokeColor);
   createP("stroke weight");
   slider = createSlider(0, 30, 6);
@@ -38,12 +38,12 @@ function draw() {
   background(255, 32, 54, 20);
   strokeWeight(strokeWidth);
 
-  noiseOffset += 0.01;
-  strokeWidth = noise(noiseOffset) * 20;
+  noiseOffset += 0.03;
+  strokeWidth = noise(noiseOffset) * 80;
 
   let lineWidth = slider.value();
   if (mouseIsPressed === true) {
-    //stroke(map(mouseX, 0, 600, 0, 255, true), )
+    stroke(map(mouseX, 0, 600, 0, 255, true))
     //line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
     // background(0);
     line(width - mouseX, height - mouseY, pmouseX, pmouseY);
@@ -90,4 +90,21 @@ function keyTyped() {
   }
 
   return false;
+}
+
+function drawGrid() {
+  numCells = 20;
+  fillColor = 255;
+
+  for (let i = 0; i <= width; i += width / numCells) {
+    for (let j = 0; j <= height; j += height / numCells) {
+      if (fillColor === 255) {
+        fillColor = (125, 23, 68);
+      } else {
+        fillColor = (25, 68, 68);
+      }
+      fill(fillColor);
+      rect(i, j, width / numCells, height / numCells);
+    }
+  }
 }
