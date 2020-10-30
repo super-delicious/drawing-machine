@@ -17,6 +17,8 @@ canvas {
   left: 0;
   position: absolute;
   z-index: -1;
+  border-style: solid;
+  border-color: rgb(25, 250, 90);
   /*---  display: block;
   border-radius: 0.8;
   border: 5px solid rgb(32, 238, 251);----*/
@@ -40,6 +42,13 @@ canvas {
   color: rgb(255, 255, 255);
 }
 
+#colors {
+  text-align: center: display:block;
+  margin: 2% 5%;
+  padding: 1px;
+  margin-bottom: 0px;
+}
+
 .myP {
   text-align: center: display:block;
   margin: 2% 5%;
@@ -47,7 +56,7 @@ canvas {
   margin-bottom: 0px;
   color: rgb(210, 178, 245);
 }
-.button {
+.buttonS {
   display: inline-block;
   background-color: rgb(97,97,171);
   text-align: center;

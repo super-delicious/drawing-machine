@@ -1,33 +1,40 @@
 let array = [];
-let button1;
+let buttonStroke;
 //let button2;
 let slider;
-let r = 100;
-let g = 100;
-let b = 100;
 let noiseX = 0.0;
 let strokeWidth = 5;
 let colorPicker;
+let button;
+let controlDiv;
+let visible = true;
 
 function setup() {
-  //createCanvas(889, 500);
-  createCanvas(windowWidth, windowHeight);
-  //  background(255, 32, 54);
-  drawGrid();
-  //  strokeWeight(r, g, b);
 
-  //  button1 = createButton("stroke weight");
+  drawGrid();
+//  strokeWeight(r, g, b);
+
+  buttonStroke = createButton("stroke weight");
+  //buttonStroke.parent('buttonS');
   //button2 = createButton("stroke color");
 
   //  button1.mousePressed(increaseStrokeWeight);
   //button2.mousePressed(changeStrokeColor);
-  createP("stroke weight");
+
   slider = createSlider(0, 30, 6);
   // color picker
   createP("Color Picker");
-  createCanvas(50, 50);
+  createCanvas(windowWidth, windowHeight);
   colorPicker = createColorPicker('#f5f12f');
-  colorPicker.position(230, 435);
+  //  colorPicker.position(230, 435);
+  colorPicker.parent('colors');
+
+  button = createButton("hide");
+  button.mousePressed(toggleVis);
+
+  controlDiv = select("#controls");
+  console.log(controlDiv);
+
 
 }
 
@@ -38,8 +45,8 @@ function draw() {
   background(255, 32, 54, 20);
   strokeWeight(strokeWidth);
 
-  noiseOffset += 0.03;
-  strokeWidth = noise(noiseOffset) * 80;
+  //noiseOffset += 0.03;
+//  strokeWidth = noise(noiseOffset) * 80;
 
   let lineWidth = slider.value();
   if (mouseIsPressed === true) {
@@ -106,5 +113,18 @@ function drawGrid() {
       fill(fillColor);
       rect(i, j, width / numCells, height / numCells);
     }
+  }
+}
+
+
+function toggleVis() {
+  if(visible) {
+    controlDiv.hide();
+    visible = false;
+    button.html("show");
+  } else {
+    controlDiv.show();
+    visible = true;
+    button.html("hide");
   }
 }
