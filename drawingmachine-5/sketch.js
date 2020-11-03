@@ -42,9 +42,7 @@ var sketch = function(p) {
 
   p.keyPressed = function() {
     if (p.key == 's' || p.key == 'S') p.saveCanvas('fileName', 'png');
-
-    if (p.key === 'c') clear();
-    if (p.key == 'r' || p.key == 'R') {
+    if (p.key == 'a' || p.key == 'A') {
       p.background(255);
       createNodes();
     }
