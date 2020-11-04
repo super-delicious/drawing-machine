@@ -1,79 +1,68 @@
-'use strict';
-let button;
 let controlDiv;
 let visible = true;
+let noiseOFFset = 0.2;
+let strokeWidth = 20;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+
+  button = createButton("hide");
+  button.mousePressed(toggleVis);
+
+  controlDiv = select("#controls");
+  console.log(controlDiv);
+
+  noiseOFFset += 0.02;
+  strokeWidth = noise(noiseOFFset) * 100;
+
+}
+
+function draw() {
 
 
-var sketch = function(p) {
+  background(111, 81, 81);
 
-  // An array with nodes
-  var nodes = [];
+  strokeWeight(strokeWidth);
 
-  var nodeCount = 200;
 
-  p.setup = function() {
-    p.createCanvas(p.windowWidth, p.windowHeight);
-    p.noStroke();
+  noiseOFFset += 0.4;
+  strokeWidth = noise(noiseOFFset) * 20;
 
-    // Create nodes
-    createNodes();
 
-    button = createButton("hide");
-    button.mousePressed(toggleVis);
+  //stroke(map(mouseX, 0, 600, 0, 255, true))//
+  stroke(map(mouseX,  0, 600, 0, 255, true))
+  line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
+  line(mouseX, mouseY, pmouseX, pmouseY);
 
-    controlDiv = select("#controls");
-    console.log(controlDiv);
-  };
+}
 
-  p.draw = function() {
-    p.fill(205, 20);
-    p.rect(0, 0, p.width, p.height);
 
-    p.fill(0);
-    for (var i = 0; i < nodes.length; i++) {
-      // Let all nodes repel each other
-      nodes[i].attractNodes(nodes);
-      // Apply velocity vector and update position
-      nodes[i].update();
-      // Draw node
-      p.ellipse(nodes[i].x, nodes[i].y, 5, 5);
-    }
-  };
 
-  p.keyPressed = function() {
-    if (p.key == 's' || p.key == 'S') p.saveCanvas('fileName', 'png');
-    if (p.key == 'a' || p.key == 'A') {
-      p.background(255);
-      createNodes();
-    }
-  };
 
-  function createNodes() {
-    nodes = [];
-    for (var i = 0; i < nodeCount; i++) {
-      nodes.push(new Node(
-        p.width / 2 + p.random(-1, 1),
-        p.height / 2 + p.random(-1, 1),
-        5,
-        p.width - 5,
-        5,
-        p.height - 5
-      ));
-    }
+function keyTyped() {
+
+  if (key === 's') {
+    // save this image
+    saveCanvas('fileName', 'png');
+  } else if (key === 'c') {
+    // show all of image
+    clear();
+
   }
 
-};
+      return false;
+    }
 
-var myp5 = new p5(sketch);
+
 
 function toggleVis() {
   if (visible) {
     controlDiv.hide();
     visible = false;
-    button.html("show");
+    button.html("Show Instruction");
   } else {
     controlDiv.show();
     visible = true;
-    button.html("hide");
+    button.html("Hide Instruction");
   }
 }

@@ -7,7 +7,7 @@ body {
   font-family: "Courier New", Courier, monospace;
   font-weight: 500;
   textStyle(BOLD);
-  color: rgb(156, 83, 77);
+  color: rgb(89, 247, 212);
   background-color: rgb(0,0,0);
 }
 
@@ -17,11 +17,9 @@ canvas {
   left: 0;
   position: absolute;
   z-index: -1;
-  border: 20px solid ;
+  border-style: solid;
+  border-color: rgb(25, 250, 90);
 
-  /*---  display: block;
-  border-radius: 0.8;
-  border: 5px solid rgb(32, 238, 251);----*/
 }
 
 .h1 {
@@ -30,7 +28,7 @@ canvas {
   display: block;
   font-size: 32px;
   margin-top: 80px;
-  font-weight: 600;
+  textStyle(BOLD);
 }
 
 .h2 {
@@ -40,37 +38,33 @@ canvas {
   padding: 10px;
   margin-bottom: 5px;
   color: rgb(255, 255, 255);
-  text-indent: inherit;
-    font-weight: 550;
 }
 
 #colors {
   text-align: center;
-  display: block;
-  margin: 5% 5%;
-  padding: 10px;
+   display:block;
+  margin: 2% 5%;
+  padding: 1px;
   margin-bottom: 0px;
 }
 
 .myP {
   text-align: center;
   display:block;
-  margin: 2% 18%;
+  margin: 2% 5%;
   padding: 1px;
   margin-bottom: 0px;
   color: rgb(255, 255, 255);
 }
-#show {
+.buttonS {
   display: inline-block;
   background-color: rgb(97,97,171);
   text-align: center;
   margin: 10px;
   cursor: crosshair;
-  border: none;
+  vertical-align: bottom;
 }
 
-#borderimg {
-  border: 20px solid transparent;
-  padding: 20px;
-  border-imgae: url(border.png) 30 stretch;
+range {
+    background-color: rgb(20,7,80);
 }
