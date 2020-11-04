@@ -28,8 +28,8 @@ function draw() {
   noiseOFFset += 0.4;
   strokeWidth = noise(noiseOFFset) * 20;
   fill(167, 168, 248, 49);
-  triangle(460, 68, 47, 49,pmouseX, pmouseY);
-  triangle(width - mouseY, height - mouseX, 47, 49,pmouseX, pmouseY);
+  triangle(460, 68, 47, 49, pmouseX, pmouseY);
+  triangle(width - mouseY, height - mouseX, 47, 49, pmouseX, pmouseY);
   arc(50, 60, 30, 40, 0, HALF_PI);
   noFill();
   stroke(map(mouseX, 0, 600, 0, 255, true))
@@ -41,14 +41,15 @@ function draw() {
   arc(width - mouseY, height - mouseX, width - pmouseY, height - pmouseY, QUARTER_PI, PI + TWO_PI);
   fill(253, 244, 0);
   line(width - mouseX, height - mouseY, width + pmouseY, height + pmouseX);
+  fill(0, 0, 0);
   line(width + mouseY, height + mouseX, width - pmouseX, height - pmouseY);
   fill(253, 244, 0);
   line(width - mouseY, height - mouseX, width - pmouseX, height - pmouseX);
   line(mouseX, mouseY, pmouseX, pmouseY);
   fill(0, 0, 255);
-  triangle(250, 8, 47, 49,pmouseX, pmouseY);
-    fill(253, 244, 0);
- triangle(1250, 8, 437, 66,pmouseX, pmouseY);
+  triangle(250, 8, 47, 49, pmouseX, pmouseY);
+  fill(253, 244, 0);
+  triangle(1250, 8, 437, 66, pmouseX, pmouseY);
 
 }
 

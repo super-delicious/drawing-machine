@@ -5,8 +5,8 @@ html {
 
 body {
   font-family: "Courier New", Courier, monospace;
-  font-weight: 500;
-  textStyle(BOLD);
+  font-weight: 600;
+
   color: rgb(89, 247, 212);
   background-color: rgb(0,0,0);
 }
@@ -28,7 +28,7 @@ canvas {
   display: block;
   font-size: 32px;
   margin-top: 80px;
-  textStyle(BOLD);
+  border: bold;
 }
 
 .h2 {
