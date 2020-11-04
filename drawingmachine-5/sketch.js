@@ -37,7 +37,7 @@ function draw() {
   fill(253, 244, 0);
   arc(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY, PI + QUARTER_PI, PI + TWO_PI);
   fill(0, 0, 255);
-  arc(width - mouseY, height - mouseX, width - pmouseY, height - pmouseX, HALF_PI, PI + QUARTER_PI);
+  arc(width - mouseY, height - mouseX, width + pmouseY, height - pmouseX, HALF_PI, PI + QUARTER_PI);
   arc(width - mouseY, height - mouseX, width - pmouseY, height - pmouseY, QUARTER_PI, PI + TWO_PI);
   fill(253, 244, 0);
   line(width - mouseX, height - mouseY, width + pmouseY, height + pmouseX);
