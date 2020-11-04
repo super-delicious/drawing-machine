@@ -27,8 +27,10 @@ function draw() {
   noiseOFFset += 0.4;
   strokeWidth = noise(noiseOFFset) * 20;
 
-
+  noFill();
   stroke(map(mouseX,  0, 600, 0, 255, true))
+  arc(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY, PI, PI + QUARTER_PI);
+  arc(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY, PI + QUARTER_PI, PI + TWO_PI);
   line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
   line(mouseX, mouseY, pmouseX, pmouseY);
 
