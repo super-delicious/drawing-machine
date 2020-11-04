@@ -21,7 +21,6 @@ function draw() {
 
 
   background(111, 81, 81);
-
   strokeWeight(strokeWidth);
 
 
@@ -29,10 +28,10 @@ function draw() {
   strokeWidth = noise(noiseOFFset) * 20;
 
 
-  //stroke(map(mouseX, 0, 600, 0, 255, true))//
   stroke(map(mouseX,  0, 600, 0, 255, true))
   line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
   line(mouseX, mouseY, pmouseX, pmouseY);
+
 
 }
 
@@ -47,11 +46,9 @@ function keyTyped() {
   } else if (key === 'c') {
     // show all of image
     clear();
-
   }
-
-      return false;
-    }
+  return false;
+}
 
 
 
